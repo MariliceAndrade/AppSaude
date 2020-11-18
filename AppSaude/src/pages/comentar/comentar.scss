@@ -1,0 +1,34 @@
+page-comentar {
+
+    .button-edt{
+        background-color: transparent !important;
+        margin: 0;
+        ion-icon{
+            font-size: 2.5em;
+        }
+    }
+    .toolbar-ios .toolbar-title-ios {
+        text-align: center;
+        color: #c66f8b;
+    }
+
+    .toolbar-md .toolbar-title-md {
+        text-align: center;
+        color: #c66f8b;
+    }
+    .item-md.item-block .item-inner, .item-ios.item-block .item-inner {
+        padding-right: 0; 
+        border-bottom: none; 
+    }
+    .item-md, .item-ios {
+        padding-left: 0;
+    }    
+    .row {
+        padding-bottom: 15px;
+    }
+
+    ion-textarea {
+        padding: 4px 8px 4px 8px;
+    }
+
+}

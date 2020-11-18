@@ -1,0 +1,139 @@
+<ion-header>
+  <ion-navbar color="pink">
+    <ion-title>
+      Comentários
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+
+    <ion-item>
+      <ion-avatar item-left>
+        <img [src]="itemRef.foto">
+      </ion-avatar>
+    
+      <ion-row>
+
+        <ion-col>
+          <h3> {{ itemRef.nome }} </h3>
+          <ion-note>
+            {{ itemRef.time | amDateFormat: 'DD/MM/YY, HH:mm' }}
+          </ion-note>
+        </ion-col>
+    
+        <ion-col class="col-edit" *ngIf='itemRef.uid == idUser'>
+          <ion-buttons end>
+            <button ion-buttom (click)="removerTopico(itemRef)" style="background: transparent !important">
+              <ion-icon color="danger" name="trash"></ion-icon>
+            </button>
+          </ion-buttons>
+
+          <ion-buttons end>
+            <button ion-buttom (click)="editarTopico(itemRef)" style="background: transparent !important">
+              <ion-icon color="secondary" name="md-create"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-col>
+
+      </ion-row>
+    
+    </ion-item>
+
+    <ion-card-content>
+      <p> {{ itemRef.mensagem }} </p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button class="button" *ngIf='itemRef.activeLike' ion-buttom icon-left small (click)="curtirActiveTopico(itemRef, false)">
+          <ion-icon name="heart-outline"></ion-icon>
+          Curtir
+        </button>
+        <button class="button" *ngIf='!itemRef.activeLike' ion-buttom icon-left small color="pink" (click)="curtirActiveTopico(itemRef, true)">
+          <ion-icon name="heart" color="pink"></ion-icon>
+          Curtir
+        </button>
+      </ion-col>
+
+      <ion-col></ion-col>
+
+    </ion-row>
+  </ion-card>
+
+  <ion-row></ion-row>
+
+  <div style="background: #e5d3dc">
+  <ion-card *ngFor="let cItem of coments | async">
+
+    <ion-item>
+      <ion-avatar item-left>
+        <img [src]="cItem.foto">
+      </ion-avatar>
+    
+      <ion-row>
+        <ion-col>
+          <h3> {{ cItem.nome }} </h3>
+          <ion-note>
+            {{ cItem.time | amDateFormat: 'DD/MM/YY, HH:mm' }}
+          </ion-note>
+        </ion-col>
+    
+        <ion-col class="col-edit" *ngIf='cItem.uid == idUser'>
+          <ion-buttons end>
+            <button ion-buttom (click)="removercomentario(cItem)" style="background: transparent !important">
+              <ion-icon color="danger" name="trash"></ion-icon>
+            </button>
+          </ion-buttons>
+
+          <ion-buttons end>
+            <button ion-buttom (click)="editarcomentario(cItem)" style="background: transparent !important">
+              <ion-icon color="secondary" name="md-create"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+    
+    </ion-item>
+
+    <ion-card-content>
+      <p> {{ cItem.mensagem }} </p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button class="button" *ngIf='cItem.activeLike' ion-buttom icon-left small (click)="curtirActiveComentario(cItem, false)">
+          <ion-icon name="heart-outline"></ion-icon>
+          Curtir
+        </button>
+        <button class="button" *ngIf='!cItem.activeLike' ion-buttom icon-left small color="pink" (click)="curtirActiveComentario(cItem, true)">
+          <ion-icon name="heart" color="pink"></ion-icon>
+          Curtir
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</div>
+
+</ion-content>
+
+<ion-footer>
+
+    <ion-row style="background: #ffffff">
+
+      <ion-col col-10>
+        <ion-item>
+          <ion-textarea rows="1" placeholder="Escreva um comentário..." [(ngModel)]="mensagem" (input)="adjustTextarea($event);"></ion-textarea>
+        </ion-item>
+      </ion-col>
+
+      <ion-col col-1>
+        <button class="button" (click)="addcomentario(itemRef, mensagem)">
+          <ion-icon color="primary" name="md-send"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+
+</ion-footer>

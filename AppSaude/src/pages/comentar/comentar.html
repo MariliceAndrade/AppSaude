@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar class="text">
+    <ion-title>Comentário</ion-title>
+    <button ion-button item-left (click)="closeModal()" class="button-edt">
+      <ion-icon color="pink" ios="ios-close" md="md-close"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-row>
+    <ion-col no-padding>
+      <ion-item>
+        <ion-textarea style="border: 1px solid #c66f8b" placeholder="Escreva um comentário..." rows="8" [(ngModel)]="mensagem"></ion-textarea> 
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col no-padding>
+      <button ion-button full color="pink" (click)="addcomentario(mensagem)" navPop>ADICIONAR COMENTÁRIO</button> <!-- [disabled]="" -->
+    </ion-col>
+  </ion-row>
+
+</ion-content>

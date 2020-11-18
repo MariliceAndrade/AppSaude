@@ -1,0 +1,7 @@
+{
+  "name": "AppSaude",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

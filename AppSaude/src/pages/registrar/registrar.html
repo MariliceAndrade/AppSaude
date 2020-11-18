@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar color="pink">
+    <ion-title>Cadastrar nova conta</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <!-- <form (ngSubmit)="onSubmit()"> -->
+  <ion-list>
+
+     <ion-item>
+      <ion-label floating>Nome Completo</ion-label>
+      <ion-input type="text" [(ngModel)]="signupData.name" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>E-mail</ion-label>
+      <ion-input type="email" [(ngModel)]="signupData.email" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Senha</ion-label>
+      <ion-input type="password" [(ngModel)]="signupData.password" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Confirmar Senha</ion-label>
+      <ion-input type="password" [(ngModel)]="signupData.passwordRetyped" required></ion-input>
+    </ion-item>
+
+  </ion-list>
+ <!-- </form> -->
+  <button full ion-button color="pink" (click)="signUp()" [disabled]="!signupData.email || !signupData.password || !signupData.passwordRetyped || !signupData.name">Cadastrar</button>
+  
+</ion-content>

@@ -1,0 +1,23 @@
+page-tpcomentarios {
+    
+    .toolbar-ios-blue .toolbar-title-ios {
+        color: #c70aa7;
+    }
+
+    .toolbar-md-blue .toolbar-title-md {
+        color: #c70aa7;
+    }
+
+    .button{
+        background: transparent !important;
+    }
+
+    ion-icon {
+        font-size: 1.6em;
+    }
+
+    .col-edit{
+        display: flex;
+        justify-content: flex-end;
+    }
+}

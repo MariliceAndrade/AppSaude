@@ -1,0 +1,50 @@
+#menu-avatar {
+    //Estilo para quando for colocar icon para opção EDITAR
+    // .icon-badge {
+    //   top: 0px;
+    //   right: 0px;
+    //   background: #c66f8b;
+    //   color: white;
+    //   font-size: 12px;
+    //   position: absolute;
+    //   padding: 5px 8px;
+    //   border-radius: 15px;
+    // }
+    
+    .user-avatar {
+        width: 70%;
+        height: 70%;
+        border-radius: 50%;
+        border: 2px solid #ffffff;
+    }
+
+    ion-row{
+        text-align: center;
+        align-items: center;
+    }
+
+    h3, h4, 
+    .label {
+        color: white;
+        font-weight: bold;
+    }
+
+    .item {
+        background: transparent;
+    }
+
+    ion-content {
+        background: #c66f8b;
+    }
+
+    .menu-inner {
+        background: rgba(255, 255, 255, .3);
+    }
+
+    ion-icon{
+        color: #ffffff;
+    }
+
+  }
+  
+  

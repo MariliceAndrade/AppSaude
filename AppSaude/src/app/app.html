@@ -1,0 +1,40 @@
+<ion-menu [content]="content" id="menu-avatar">
+    <ion-content class="content">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <h3>Perfil</h3>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-6></ion-col>
+                <ion-col col-12>
+                    <!-- <img class="user-avatar round" src="../assets/imgs/eloise.jpg"> -->
+                    <img class="user-avatar round" src="{{ userData.photo }}">
+                </ion-col>
+                <ion-col col-6></ion-col>
+            </ion-row>
+            <ion-row style="justify-content: center;">
+                <ion-col>
+                    <h3>{{userData.name}}</h3>
+                    <h4>{{userData.email}}</h4>
+                    <!-- <h3>{{nome}}</h3>
+                    <h4>eloisemiranda1@gmail.com</h4> -->
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <ion-list no-line>
+            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+                <ion-icon [name]="p.icon" item-left></ion-icon>
+                {{p.title}}
+            </button>
+            <button ion-item (click)="signOut()">
+                <ion-icon  name="log-in" item-start mode="ios"></ion-icon>
+                Sair da conta
+              </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,57 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content class="login-content" padding>
+  <ion-row class="logo-row">
+    <ion-col>
+      <h1 class="text-col">Bem vindo!</h1>
+    </ion-col>
+  </ion-row>
+  <div class="login-box">
+    <form>
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+
+            <ion-item>
+              <ion-input type="text" [(ngModel)]="loginData.email" placeholder="Email" name="email" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="password" [(ngModel)]="loginData.password" placeholder="Senha" name="password" required></ion-input>
+            </ion-item>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full type="submit" (click)="login()" [disabled]="!loginData.email || !loginData.password">ENTRAR</button>
+          <button ion-button class="register-btn" block clear (click)="criarnovaconta()">CRIAR NOVA CONTA</button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <p class="conet-col">Conectar com:</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="margin-bottom: 10%;">
+        <ion-col>
+          <button ion-button block (click)="loginFacebook()" style="background-color:	#3b5998" icon-only>
+            <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block (click)="loginGoogle()" style="background-color:	#dd4b39" icon-only>
+            <ion-icon ios="logo-google" md="logo-google"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+
+    </form>
+  </div>
+</ion-content>

@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar class="text">
+      <ion-title>Editar</ion-title>
+      <button ion-button item-left (click)="closeModal()" class="button-edt">
+        <ion-icon color="pink" ios="ios-close" md="md-close"></ion-icon>
+      </button>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+    <ion-row>
+      <ion-col no-padding>
+        <ion-item>
+          <ion-textarea style="border: 1px solid #c66f8b" rows="8" [(ngModel)]="cItem.mensagem"></ion-textarea> 
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row>
+      <ion-col no-padding>
+        <button ion-button full color="pink" (click)="editarcomentario(cItem.mensagem)" navPop>SALVAR</button> <!-- [disabled]="" -->
+      </ion-col>
+    </ion-row>
+  
+  </ion-content>

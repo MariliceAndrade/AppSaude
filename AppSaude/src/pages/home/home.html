@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-navbar color="pink">
+    <button ion-button menuToggle color="light">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Feed do Fórum
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card *ngFor="let item of id | async">
+
+    <ion-item>
+      <ion-avatar item-left>
+        <!-- <img src="../assets/imgs/eloise.jpg">  -->
+        <img [src]="item.foto">
+      </ion-avatar>
+    
+      <ion-row>
+
+        <ion-col>
+          <h3> {{ item.nome }} </h3>
+          <ion-note>
+            {{ item.time | amDateFormat: 'DD/MM/YY, HH:mm' }}
+          </ion-note>
+          <!-- <h3>{{ item.key }}</h3> -->
+        </ion-col>
+    
+        <ion-col class="col-edit" *ngIf='item.uid == idUser'>
+          <ion-buttons end>
+            <button ion-buttom (click)="removerTopico(item)" style="background: transparent !important">
+              <ion-icon color="danger" name="trash"></ion-icon>
+            </button>
+          </ion-buttons>
+
+          <ion-buttons end>
+            <button ion-buttom (click)="editarTopico(item)" style="background: transparent !important">
+              <ion-icon color="secondary" name="md-create"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-col>
+
+      </ion-row>
+    
+    </ion-item>
+
+    <ion-card-content (click)="tpcomentarios(item)">
+      <p> {{ item.mensagem }} </p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button class="button" *ngIf='item.activeLike' ion-buttom icon-left small (click)="curtirActive(item, false)">
+          <ion-icon name="heart-outline"></ion-icon>
+          Curtir
+        </button>
+        <button class="button" *ngIf='!item.activeLike' ion-buttom icon-left small color="pink" (click)="curtirActive(item, true)">
+          <ion-icon name="heart" color="pink"></ion-icon>
+          Curtir
+        </button>
+      </ion-col>
+
+      <ion-col>
+        <button class="button" ion-buttom icon-left small (click)="addcomentario(item)">
+          <ion-icon name="ios-text-outline"></ion-icon>
+          Comentar
+        </button>
+      </ion-col>
+
+      <ion-col></ion-col>
+
+      <!-- <ion-col text-center>
+        <ion-note>
+          // {{ item.time | date : 'dd/MM/yyyy' YYYY-MM-DD }} //
+          {{ item.time | amDateFormat: 'HH:mm' }}
+        </ion-note>
+      </ion-col> -->
+    </ion-row>
+  </ion-card>
+
+  <ion-fab right bottom>
+    <button ion-fab color="pink" (click)="criarTopico()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>
